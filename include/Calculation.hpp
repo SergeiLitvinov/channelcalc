@@ -16,16 +16,18 @@ class Calculation
             bool status;
             float U1m;
             float U2;
-            float Ky;
-            float Roc;
+            float Kgainins;
+            float Kgaincom;
+            float Rfbinvert;
+            float Rfbnoninvert;
         };
 
     public:
         bool setU1rms(std::string input);
         bool setR1(std::string input);
         bool setR2(std::string input);
-        calcresult rutine();
         bool checkinput(std::string input);
+        calcresult rutine();
 };
 
 

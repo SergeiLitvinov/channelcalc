@@ -32,9 +32,9 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class MyFrame1
+/// Class MainFrame
 ///////////////////////////////////////////////////////////////////////////////
-class MyFrame1 : public wxFrame
+class MainFrame : public wxFrame
 {
 	private:
 
@@ -87,9 +87,9 @@ class MyFrame1 : public wxFrame
 		wxString inputR1;
 		wxString inputR2;
 
-		MyFrame1( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("ui"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1500,1200 ), long style = wxDEFAULT_FRAME_STYLE|wxMAXIMIZE|wxTAB_TRAVERSAL, const wxString& name = wxT("ui") );
+		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("ui"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1500,1200 ), long style = wxDEFAULT_FRAME_STYLE|wxMAXIMIZE|wxTAB_TRAVERSAL, const wxString& name = wxT("ui") );
 
-		~MyFrame1();
+		~MainFrame();
 
 };
 

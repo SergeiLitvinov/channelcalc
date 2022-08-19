@@ -1,11 +1,11 @@
-#ifndef delitel2_BMP_H
-#define delitel2_BMP_H
+#ifndef delitel2_H
+#define delitel2_H
 
 #include <wx/mstream.h>
 #include <wx/image.h>
 #include <wx/bitmap.h>
 
-static const unsigned char delitel2_bmp[] =
+static const unsigned char delitel2[] =
 {
 	0x42, 0x4D, 0x8A, 0x4D, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 
 	0x8A, 0x00, 0x00, 0x00, 0x7C, 0x00, 0x00, 0x00, 0x60, 0x00, 
@@ -8548,13 +8548,13 @@ static const unsigned char delitel2_bmp[] =
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 
 };
 
-wxBitmap& delitel2_bmp_to_wx_bitmap()
+wxBitmap& delitel2_to_wx_bitmap()
 {
-	static wxMemoryInputStream memIStream( delitel2_bmp, sizeof( delitel2_bmp ) );
+	static wxMemoryInputStream memIStream( delitel2, sizeof( delitel2 ) );
 	static wxImage image( memIStream, wxBITMAP_TYPE_BMP );
 	static wxBitmap bmp( image );
 	return bmp;
 }
 
 
-#endif //delitel2_BMP_H
+#endif //delitel2_H

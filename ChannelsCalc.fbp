@@ -11,13 +11,13 @@
         <property name="embedded_files_path">res</property>
         <property name="encoding">UTF-8</property>
         <property name="event_generation">connect</property>
-        <property name="file">dataview</property>
+        <property name="file">MainFrame</property>
         <property name="first_id">1000</property>
         <property name="help_provider">none</property>
         <property name="image_path_wrapper_function_name"></property>
         <property name="indent_with_spaces"></property>
         <property name="internationalize">0</property>
-        <property name="name">MyProject1</property>
+        <property name="name">ChannelCalc</property>
         <property name="namespace"></property>
         <property name="path">.</property>
         <property name="precompiled_header"></property>
@@ -29,7 +29,7 @@
         <property name="use_array_enum">0</property>
         <property name="use_enum">0</property>
         <property name="use_microsoft_bom">0</property>
-        <object class="Frame" expanded="0">
+        <object class="Frame" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg">wxSYS_COLOUR_MENU</property>
@@ -45,7 +45,7 @@
             <property name="id">wxID_ANY</property>
             <property name="maximum_size"></property>
             <property name="minimum_size"></property>
-            <property name="name">MyFrame1</property>
+            <property name="name">MainFrame</property>
             <property name="pos"></property>
             <property name="size">1500,1200</property>
             <property name="style">wxDEFAULT_FRAME_STYLE|wxMAXIMIZE</property>
@@ -80,7 +80,7 @@
                 <property name="window_name"></property>
                 <property name="window_style"></property>
             </object>
-            <object class="wxMenuBar" expanded="0">
+            <object class="wxMenuBar" expanded="1">
                 <property name="bg"></property>
                 <property name="context_help"></property>
                 <property name="context_menu">1</property>
@@ -138,27 +138,20 @@
                     </object>
                 </object>
             </object>
-            <object class="wxBoxSizer" expanded="0">
+            <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer3</property>
                 <property name="orient">wxVERTICAL</property>
                 <property name="permission">none</property>
-                <object class="sizeritem" expanded="0">
+                <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND</property>
-                    <property name="proportion">1</property>
-                    <object class="wxFlexGridSizer" expanded="0">
-                        <property name="cols">2</property>
-                        <property name="flexible_direction">wxBOTH</property>
-                        <property name="growablecols"></property>
-                        <property name="growablerows"></property>
-                        <property name="hgap">0</property>
+                    <property name="proportion">0</property>
+                    <object class="wxBoxSizer" expanded="1">
                         <property name="minimum_size"></property>
-                        <property name="name">fgSizer4</property>
-                        <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
+                        <property name="name">bSizer101</property>
+                        <property name="orient">wxHORIZONTAL</property>
                         <property name="permission">none</property>
-                        <property name="rows">0</property>
-                        <property name="vgap">0</property>
                         <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxALL</property>
@@ -238,7 +231,7 @@
                                 <property name="caption"></property>
                                 <property name="caption_visible">1</property>
                                 <property name="center_pane">0</property>
-                                <property name="choices">&quot;ЦКТТН 6-35 кВ (питание от СОПТ)&quot; &quot;ЦКТТН 6-36 кВ (питание от линии)&quot; &quot;ЦКТТН 110 кВ (питание от СОПТ)&quot; &quot;АТКУЭ 6-35 кВ&quot;</property>
+                                <property name="choices">&quot;ЦКТТН 6-35 кВ (питание от СОПТ)&quot; &quot;ЦКТТН 6-36 кВ (питание от линии) или ЦКТТН 110 кВ (питание от СОПТ)&quot; &quot;АТКУЭ 6-35 кВ&quot;</property>
                                 <property name="close_button">1</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -286,10 +279,28 @@
                                 <event name="OnCombobox">ProductSelect</event>
                             </object>
                         </object>
+                    </object>
+                </object>
+                <object class="sizeritem" expanded="1">
+                    <property name="border">5</property>
+                    <property name="flag">wxEXPAND</property>
+                    <property name="proportion">1</property>
+                    <object class="wxFlexGridSizer" expanded="1">
+                        <property name="cols">2</property>
+                        <property name="flexible_direction">wxBOTH</property>
+                        <property name="growablecols"></property>
+                        <property name="growablerows"></property>
+                        <property name="hgap">0</property>
+                        <property name="minimum_size"></property>
+                        <property name="name">fgSizer4</property>
+                        <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
+                        <property name="permission">none</property>
+                        <property name="rows">0</property>
+                        <property name="vgap">0</property>
                         <object class="sizeritem" expanded="0">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
-                            <property name="proportion">1</property>
+                            <property name="proportion">0</property>
                             <object class="wxBoxSizer" expanded="0">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer5</property>
@@ -391,7 +402,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="maxlength"></property>
+                                        <property name="maxlength">10</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -494,11 +505,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer10</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -599,7 +610,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="maxlength"></property>
+                                        <property name="maxlength">10</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -702,11 +713,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer12</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -807,7 +818,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="maxlength"></property>
+                                        <property name="maxlength">10</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -910,11 +921,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxALIGN_CENTER</property>
                             <property name="proportion">0</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer51</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -1015,7 +1026,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="maxlength"></property>
+                                        <property name="maxlength">10</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -1259,7 +1270,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="maxlength"></property>
+                                        <property name="maxlength">10</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -1362,11 +1373,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer6</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -1401,7 +1412,7 @@
                                         <property name="floatable">1</property>
                                         <property name="font"></property>
                                         <property name="gripper">0</property>
-                                        <property name="hidden">1</property>
+                                        <property name="hidden">0</property>
                                         <property name="id">wxID_ANY</property>
                                         <property name="label">Введите значение сопротивление на входе усилителя, R=</property>
                                         <property name="markup">0</property>
@@ -1462,7 +1473,7 @@
                                         <property name="floatable">1</property>
                                         <property name="font"></property>
                                         <property name="gripper">0</property>
-                                        <property name="hidden">1</property>
+                                        <property name="hidden">0</property>
                                         <property name="id">wxID_ANY</property>
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
@@ -1526,7 +1537,7 @@
                                         <property name="floatable">1</property>
                                         <property name="font"></property>
                                         <property name="gripper">0</property>
-                                        <property name="hidden">1</property>
+                                        <property name="hidden">0</property>
                                         <property name="id">wxID_ANY</property>
                                         <property name="label">Ом</property>
                                         <property name="markup">0</property>
@@ -1569,11 +1580,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer8</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -1716,11 +1727,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer7</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -1821,7 +1832,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="maxlength"></property>
+                                        <property name="maxlength">10</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>
@@ -1863,11 +1874,11 @@
                                 <property name="width">0</property>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="0">
+                        <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">1</property>
-                            <object class="wxBoxSizer" expanded="0">
+                            <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
                                 <property name="name">bSizer9</property>
                                 <property name="orient">wxHORIZONTAL</property>
@@ -1968,7 +1979,7 @@
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
                                         <property name="maximum_size"></property>
-                                        <property name="maxlength"></property>
+                                        <property name="maxlength">10</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size"></property>

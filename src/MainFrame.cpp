@@ -1,13 +1,17 @@
-#include "DataView.h"
-#include "delitel2.bmp.h"
+///////////////////////////////////////////////////////////////////////////
+// C++ code generated with wxFormBuilder (version 3.10.1-0-g8feb16b3)
+// http://www.wxformbuilder.org/
+//
+// PLEASE DO *NOT* EDIT THIS FILE!
+///////////////////////////////////////////////////////////////////////////
 
+#include "MainFrame.h"
 
+#include "delitel2.h"
 
+///////////////////////////////////////////////////////////////////////////
 
-
-
-
-MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxFrame( parent, id, title, pos, size, style, name )
+MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxFrame( parent, id, title, pos, size, style, name )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_MENU ) );
@@ -33,22 +37,27 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
+	wxBoxSizer* bSizer101;
+	bSizer101 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText4 = new wxStaticText( this, wxID_ANY, wxT("Выберите тип устройства"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText4->Wrap( -1 );
+	bSizer101->Add( m_staticText4, 0, wxALL, 5 );
+
+	m_comboBox4 = new wxComboBox( this, wxID_ANY, wxT("ЦКТТН 6-35 кВ (питание от СОПТ)"), wxDefaultPosition, wxSize( 300,-1 ), 0, NULL, 0 );
+	m_comboBox4->Append( wxT("ЦКТТН 6-35 кВ (питание от СОПТ)") );
+	m_comboBox4->Append( wxT("ЦКТТН 6-36 кВ (питание от линии) или ЦКТТН 110 кВ (питание от СОПТ)") );
+	m_comboBox4->Append( wxT("АТКУЭ 6-35 кВ") );
+	m_comboBox4->SetSelection( 0 );
+	bSizer101->Add( m_comboBox4, 0, wxALL, 5 );
+
+
+	bSizer3->Add( bSizer101, 0, wxEXPAND, 5 );
+
 	wxFlexGridSizer* fgSizer4;
 	fgSizer4 = new wxFlexGridSizer( 0, 2, 0, 0 );
 	fgSizer4->SetFlexibleDirection( wxBOTH );
 	fgSizer4->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-
-	m_staticText4 = new wxStaticText( this, wxID_ANY, wxT("Выберите тип устройства"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText4->Wrap( -1 );
-	fgSizer4->Add( m_staticText4, 0, wxALL, 5 );
-
-	m_comboBox4 = new wxComboBox( this, wxID_ANY, wxT("ЦКТТН 6-35 кВ (питание от СОПТ)"), wxDefaultPosition, wxSize( 300,-1 ), 0, NULL, 0 );
-	m_comboBox4->Append( wxT("ЦКТТН 6-35 кВ (питание от СОПТ)") );
-	m_comboBox4->Append( wxT("ЦКТТН 6-36 кВ (питание от линии)") );
-	m_comboBox4->Append( wxT("ЦКТТН 110 кВ (питание от СОПТ)") );
-	m_comboBox4->Append( wxT("АТКУЭ 6-35 кВ") );
-	m_comboBox4->SetSelection( 0 );
-	fgSizer4->Add( m_comboBox4, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer5;
 	bSizer5 = new wxBoxSizer( wxHORIZONTAL );
@@ -58,6 +67,14 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer5->Add( m_staticText2, 0, wxALL, 5 );
 
 	m_textCtrl1 = new wxTextCtrl( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl1->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl1->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl1->SetMaxLength( 10 );
+	#endif
 	m_textCtrl1->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &inputU1rms ) );
 
 	bSizer5->Add( m_textCtrl1, 0, wxALL, 5 );
@@ -67,7 +84,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer5->Add( m_staticText3, 0, wxALL, 5 );
 
 
-	fgSizer4->Add( bSizer5, 1, wxEXPAND, 5 );
+	fgSizer4->Add( bSizer5, 0, wxEXPAND, 5 );
 
 
 	fgSizer4->Add( 0, 0, 1, wxEXPAND, 5 );
@@ -80,6 +97,14 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer10->Add( m_staticText41, 0, wxALL, 5 );
 
 	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl2->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl2->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl2->SetMaxLength( 10 );
+	#endif
 	m_textCtrl2->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &inputR1 ) );
 
 	bSizer10->Add( m_textCtrl2, 0, wxALL, 5 );
@@ -102,6 +127,14 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer12->Add( m_staticText6, 0, wxALL, 5 );
 
 	m_textCtrl4 = new wxTextCtrl( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl4->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl4->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl4->SetMaxLength( 10 );
+	#endif
 	m_textCtrl4->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &inputR2 ) );
 
 	bSizer12->Add( m_textCtrl4, 0, wxALL, 5 );
@@ -124,6 +157,14 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer51->Add( m_staticText8, 0, wxALL, 5 );
 
 	m_textCtrl8 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl8->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl8->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl8->SetMaxLength( 10 );
+	#endif
 	m_textCtrl8->Enable( false );
 
 	bSizer51->Add( m_textCtrl8, 0, wxALL, 5 );
@@ -132,7 +173,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText16->Wrap( -1 );
 	bSizer51->Add( m_staticText16, 0, wxALL, 5 );
 
-	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, delitel2_bmp_to_wx_bitmap(), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, delitel2_to_wx_bitmap(), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer51->Add( m_bitmap1, 0, wxALL, 5 );
 
 	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("U2="), wxDefaultPosition, wxDefaultSize, 0 );
@@ -140,6 +181,14 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer51->Add( m_staticText9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textCtrl10 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl10->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl10->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl10->SetMaxLength( 10 );
+	#endif
 	m_textCtrl10->Enable( false );
 
 	bSizer51->Add( m_textCtrl10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
@@ -159,19 +208,13 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_staticText11 = new wxStaticText( this, wxID_ANY, wxT("Введите значение сопротивление на входе усилителя, R="), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText11->Wrap( -1 );
-	m_staticText11->Hide();
-
 	bSizer6->Add( m_staticText11, 0, wxALL, 5 );
 
 	m_textCtrl5 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_textCtrl5->Hide();
-
 	bSizer6->Add( m_textCtrl5, 0, wxALL, 5 );
 
 	m_staticText12 = new wxStaticText( this, wxID_ANY, wxT("Ом"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText12->Wrap( -1 );
-	m_staticText12->Hide();
-
 	bSizer6->Add( m_staticText12, 0, wxALL, 5 );
 
 
@@ -216,6 +259,14 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer7->Add( m_staticText10, 0, wxALL, 5 );
 
 	m_textCtrl41 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl41->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl41->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl41->SetMaxLength( 10 );
+	#endif
 	m_textCtrl41->Enable( false );
 
 	bSizer7->Add( m_textCtrl41, 0, wxALL, 5 );
@@ -234,6 +285,14 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer9->Add( m_staticText14, 0, wxALL, 5 );
 
 	m_textCtrl6 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl6->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl6->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl6->SetMaxLength( 10 );
+	#endif
 	m_textCtrl6->Enable( false );
 
 	bSizer9->Add( m_textCtrl6, 0, wxALL, 5 );
@@ -255,23 +314,24 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_comboBox4->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MyFrame1::ProductSelect ), NULL, this );
-	m_textCtrl1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::U1rmsEnter ), NULL, this );
-	m_textCtrl2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::R1Enter ), NULL, this );
-	m_textCtrl4->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::R2Enter ), NULL, this );
-	m_textCtrl10->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::U2Calc ), NULL, this );
-	m_textCtrl41->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::KyCalc ), NULL, this );
-	m_textCtrl6->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::RocCalc ), NULL, this );
+	m_comboBox4->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::ProductSelect ), NULL, this );
+	m_textCtrl1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U1rmsEnter ), NULL, this );
+	m_textCtrl2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R1Enter ), NULL, this );
+	m_textCtrl4->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R2Enter ), NULL, this );
+	m_textCtrl10->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U2Calc ), NULL, this );
+	m_textCtrl41->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::KyCalc ), NULL, this );
+	m_textCtrl6->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::RocCalc ), NULL, this );
 }
 
-MyFrame1::~MyFrame1()
+MainFrame::~MainFrame()
 {
-	// Disconnect 
-	m_comboBox4->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MyFrame1::ProductSelect ), NULL, this );
-	m_textCtrl1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::U1rmsEnter ), NULL, this );
-	m_textCtrl2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::R1Enter ), NULL, this );
-	m_textCtrl4->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::R2Enter ), NULL, this );
-	m_textCtrl10->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::U2Calc ), NULL, this );
-	m_textCtrl41->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::KyCalc ), NULL, this );
-	m_textCtrl6->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MyFrame1::RocCalc ), NULL, this );
+	// Disconnect Events
+	m_comboBox4->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::ProductSelect ), NULL, this );
+	m_textCtrl1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U1rmsEnter ), NULL, this );
+	m_textCtrl2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R1Enter ), NULL, this );
+	m_textCtrl4->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R2Enter ), NULL, this );
+	m_textCtrl10->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U2Calc ), NULL, this );
+	m_textCtrl41->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::KyCalc ), NULL, this );
+	m_textCtrl6->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::RocCalc ), NULL, this );
+
 }

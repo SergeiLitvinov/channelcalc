@@ -34,7 +34,6 @@ bool Calculation::setU1rms(std::string input)
     /* wxTextCtrl *TextString = (wxTextCtrl *) event.GetEventObject(); */
     if (!checkinput(input))
     {
-        U1rms = 0;
         return false;
     }
     
@@ -47,7 +46,6 @@ bool Calculation::setR1(std::string input)
 {
     if (!checkinput(input))
     {
-        R1 = 0;
         return false;
     }
     
@@ -59,7 +57,6 @@ bool Calculation::setR2(std::string input)
 {
     if (!checkinput(input))
     {
-        R2 = 0;
         return false;
     }
 
@@ -67,13 +64,12 @@ bool Calculation::setR2(std::string input)
     return true;
 };
 
-
 Calculation::calcresult Calculation::rutine()
 {
     calcresult result = {false, 0, 0, 0, 0};
     result.U1m = U1rms*sqrt(2);
     result.U2 = result.U1m*(R2/(R1+R2));
-    result.Ky = 2.048/(sqrt(2)*result.U2);
-    result.Roc = 100000/result.Ky - 1;
+    result.Kgainins = 2.048/(sqrt(2)*result.U2);
+    result.Rfbinvert = 100000/result.Kgainins - 1;
     return result;
 };
