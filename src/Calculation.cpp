@@ -4,21 +4,28 @@
 #include <iostream>
 #include <math.h>
 
+// #include <stdlib.h>
+// #include <ctype.h>
+
 
 
 
 bool Calculation::checkinput(std::string input)
 {
+    
+
     if (input.length() == 0)
     {
         return false;
     }
-
-    /* if (std::isdigit(input))
-    {
-        return false;
-    } */
-
+    /* int i;
+    for (i=0; i<input.length(); i++) {
+        if (!isdigit(input[i]))
+        {
+            return false;
+        }
+    }
+ */
     return true;
 };
 

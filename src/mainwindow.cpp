@@ -1,36 +1,11 @@
-///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Oct 26 2018)
-// http://www.wxformbuilder.org/
-//
-// PLEASE DO *NOT* EDIT THIS FILE!
-///////////////////////////////////////////////////////////////////////////
-
-#include "mainwindow.h"
-#include "delitel2.bmp.h"
 #include "DataView.h"
+#include "delitel2.bmp.h"
 
 
-///////////////////////////////////////////////////////////////////////////
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-    #include <wx/wx.h>
-#endif
 
-//Test testHandler;
 
-class MyApp: public wxApp
-{
-public:
-    virtual bool OnInit();
-};
-wxIMPLEMENT_APP(MyApp);
-bool MyApp::OnInit()
-{
 
-    DataView *form = new DataView(NULL, wxID_ANY, wxT("ChannelCalc") );
-	form->Show(true);
-    return true;
-}
+
 
 MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxFrame( parent, id, title, pos, size, style, name )
 {
@@ -82,7 +57,9 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText2->Wrap( -1 );
 	bSizer5->Add( m_staticText2, 0, wxALL, 5 );
 
-	m_textCtrl1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl1 = new wxTextCtrl( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl1->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &inputU1rms ) );
+
 	bSizer5->Add( m_textCtrl1, 0, wxALL, 5 );
 
 	m_staticText3 = new wxStaticText( this, wxID_ANY, wxT("В"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -102,7 +79,9 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText41->Wrap( -1 );
 	bSizer10->Add( m_staticText41, 0, wxALL, 5 );
 
-	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl2->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &inputR1 ) );
+
 	bSizer10->Add( m_textCtrl2, 0, wxALL, 5 );
 
 	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("Ом"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -122,7 +101,9 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText6->Wrap( -1 );
 	bSizer12->Add( m_staticText6, 0, wxALL, 5 );
 
-	m_textCtrl4 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl4 = new wxTextCtrl( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl4->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &inputR2 ) );
+
 	bSizer12->Add( m_textCtrl4, 0, wxALL, 5 );
 
 	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("Ом"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -143,8 +124,6 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer51->Add( m_staticText8, 0, wxALL, 5 );
 
 	m_textCtrl8 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_textCtrl8->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
-	m_textCtrl8->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
 	m_textCtrl8->Enable( false );
 
 	bSizer51->Add( m_textCtrl8, 0, wxALL, 5 );
@@ -154,8 +133,6 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer51->Add( m_staticText16, 0, wxALL, 5 );
 
 	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, delitel2_bmp_to_wx_bitmap(), wxDefaultPosition, wxDefaultSize, 0 );
-	m_bitmap1->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_MENU ) );
-
 	bSizer51->Add( m_bitmap1, 0, wxALL, 5 );
 
 	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("U2="), wxDefaultPosition, wxDefaultSize, 0 );
@@ -163,9 +140,6 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer51->Add( m_staticText9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_textCtrl10 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_textCtrl10->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
-	m_textCtrl10->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
-	m_textCtrl10->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
 	m_textCtrl10->Enable( false );
 
 	bSizer51->Add( m_textCtrl10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
@@ -242,7 +216,6 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer7->Add( m_staticText10, 0, wxALL, 5 );
 
 	m_textCtrl41 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_textCtrl41->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
 	m_textCtrl41->Enable( false );
 
 	bSizer7->Add( m_textCtrl41, 0, wxALL, 5 );
@@ -261,7 +234,6 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer9->Add( m_staticText14, 0, wxALL, 5 );
 
 	m_textCtrl6 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	m_textCtrl6->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
 	m_textCtrl6->Enable( false );
 
 	bSizer9->Add( m_textCtrl6, 0, wxALL, 5 );

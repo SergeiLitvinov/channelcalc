@@ -22,6 +22,8 @@
 #include <wx/stattext.h>
 #include <wx/combobox.h>
 #include <wx/textctrl.h>
+#include <wx/valtext.h>
+#include <wx/dynarray.h>
 #include <wx/sizer.h>
 #include <wx/statbmp.h>
 #include <wx/frame.h>
@@ -70,7 +72,7 @@ class MyFrame1 : public wxFrame
 		wxTextCtrl* m_textCtrl6;
 		wxStaticText* m_staticText15;
 
-		// Virtual event handlers, override them in your derived 
+		// Virtual event handlers, override them in your derived class
 		virtual void ProductSelect( wxCommandEvent& event ) { event.Skip(); }
 		virtual void U1rmsEnter( wxCommandEvent& event ) { event.Skip(); }
 		virtual void R1Enter( wxCommandEvent& event ) { event.Skip(); }
@@ -79,7 +81,11 @@ class MyFrame1 : public wxFrame
 		virtual void KyCalc( wxCommandEvent& event ) { event.Skip(); }
 		virtual void RocCalc( wxCommandEvent& event ) { event.Skip(); }
 
+
 	public:
+		wxString inputU1rms;
+		wxString inputR1;
+		wxString inputR2;
 
 		MyFrame1( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("ui"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1500,1200 ), long style = wxDEFAULT_FRAME_STYLE|wxMAXIMIZE|wxTAB_TRAVERSAL, const wxString& name = wxT("ui") );
 

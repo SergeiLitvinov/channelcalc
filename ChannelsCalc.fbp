@@ -11,7 +11,7 @@
         <property name="embedded_files_path">res</property>
         <property name="encoding">UTF-8</property>
         <property name="event_generation">connect</property>
-        <property name="file">calculation</property>
+        <property name="file">dataview</property>
         <property name="first_id">1000</property>
         <property name="help_provider">none</property>
         <property name="image_path_wrapper_function_name"></property>
@@ -29,7 +29,7 @@
         <property name="use_array_enum">0</property>
         <property name="use_enum">0</property>
         <property name="use_microsoft_bom">0</property>
-        <object class="Frame" expanded="1">
+        <object class="Frame" expanded="0">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg">wxSYS_COLOUR_MENU</property>
@@ -410,11 +410,11 @@
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
                                         <property name="tooltip"></property>
-                                        <property name="validator_data_type"></property>
-                                        <property name="validator_style">wxFILTER_NONE</property>
-                                        <property name="validator_type">wxDefaultValidator</property>
-                                        <property name="validator_variable"></property>
-                                        <property name="value"></property>
+                                        <property name="validator_data_type">wxString</property>
+                                        <property name="validator_style">wxFILTER_NUMERIC</property>
+                                        <property name="validator_type">wxTextValidator</property>
+                                        <property name="validator_variable">inputU1rms</property>
+                                        <property name="value">0</property>
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
@@ -618,11 +618,11 @@
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
                                         <property name="tooltip"></property>
-                                        <property name="validator_data_type"></property>
-                                        <property name="validator_style">wxFILTER_NONE</property>
-                                        <property name="validator_type">wxDefaultValidator</property>
-                                        <property name="validator_variable"></property>
-                                        <property name="value"></property>
+                                        <property name="validator_data_type">wxString</property>
+                                        <property name="validator_style">wxFILTER_NUMERIC</property>
+                                        <property name="validator_type">wxTextValidator</property>
+                                        <property name="validator_variable">inputR1</property>
+                                        <property name="value">0</property>
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
@@ -826,11 +826,11 @@
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
                                         <property name="tooltip"></property>
-                                        <property name="validator_data_type"></property>
-                                        <property name="validator_style">wxFILTER_NONE</property>
-                                        <property name="validator_type">wxDefaultValidator</property>
-                                        <property name="validator_variable"></property>
-                                        <property name="value"></property>
+                                        <property name="validator_data_type">wxString</property>
+                                        <property name="validator_style">wxFILTER_NUMERIC</property>
+                                        <property name="validator_type">wxTextValidator</property>
+                                        <property name="validator_variable">inputR2</property>
+                                        <property name="value">0</property>
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
