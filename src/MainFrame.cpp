@@ -210,7 +210,17 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_staticText11->Wrap( -1 );
 	bSizer6->Add( m_staticText11, 0, wxALL, 5 );
 
-	m_textCtrl5 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrl5 = new wxTextCtrl( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	#ifdef __WXGTK__
+	if ( !m_textCtrl5->HasFlag( wxTE_MULTILINE ) )
+	{
+	m_textCtrl5->SetMaxLength( 10 );
+	}
+	#else
+	m_textCtrl5->SetMaxLength( 10 );
+	#endif
+	m_textCtrl5->SetValidator( wxTextValidator( wxFILTER_NUMERIC, &inputR ) );
+
 	bSizer6->Add( m_textCtrl5, 0, wxALL, 5 );
 
 	m_staticText12 = new wxStaticText( this, wxID_ANY, wxT("Ом"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -271,6 +281,12 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	bSizer7->Add( m_textCtrl41, 0, wxALL, 5 );
 
+	m_staticText181 = new wxStaticText( this, wxID_ANY, wxT("R = 100 кОм"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText181->Wrap( -1 );
+	m_staticText181->Hide();
+
+	bSizer7->Add( m_staticText181, 0, wxALL, 5 );
+
 
 	fgSizer4->Add( bSizer7, 1, wxEXPAND, 5 );
 
@@ -318,9 +334,8 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_textCtrl1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U1rmsEnter ), NULL, this );
 	m_textCtrl2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R1Enter ), NULL, this );
 	m_textCtrl4->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R2Enter ), NULL, this );
-	m_textCtrl10->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U2Calc ), NULL, this );
-	m_textCtrl41->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::KyCalc ), NULL, this );
-	m_textCtrl6->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::RocCalc ), NULL, this );
+	m_textCtrl5->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::REnter ), NULL, this );
+	m_comboBox2->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::ADCVoltageSelect ), NULL, this );
 }
 
 MainFrame::~MainFrame()
@@ -330,8 +345,7 @@ MainFrame::~MainFrame()
 	m_textCtrl1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U1rmsEnter ), NULL, this );
 	m_textCtrl2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R1Enter ), NULL, this );
 	m_textCtrl4->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::R2Enter ), NULL, this );
-	m_textCtrl10->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::U2Calc ), NULL, this );
-	m_textCtrl41->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::KyCalc ), NULL, this );
-	m_textCtrl6->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::RocCalc ), NULL, this );
+	m_textCtrl5->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::REnter ), NULL, this );
+	m_comboBox2->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::ADCVoltageSelect ), NULL, this );
 
 }

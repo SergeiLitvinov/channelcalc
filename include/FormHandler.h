@@ -22,13 +22,13 @@ class FormHandler : public MainFrame
 	protected:
 		// Handlers for MainFrame events.
 		void ProductSelect( wxCommandEvent& event ) override;
+		void ADCVoltageSelect( wxCommandEvent& event ) override;
 		void U1rmsEnter( wxCommandEvent& event ) override;
 		void R1Enter( wxCommandEvent& event ) override;
 		void R2Enter( wxCommandEvent& event ) override;
-		void U2Calc( wxCommandEvent& event ) override;
-		void KyCalc( wxCommandEvent& event ) override;
-		void RocCalc( wxCommandEvent& event ) override;
-	
+		void REnter( wxCommandEvent& event ) override;
+
+
 	//public:
 		/** Constructor */
 	// FormHandler( wxWindow* parent );

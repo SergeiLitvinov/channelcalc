@@ -21,10 +21,9 @@
 #include <wx/menu.h>
 #include <wx/stattext.h>
 #include <wx/combobox.h>
+#include <wx/sizer.h>
 #include <wx/textctrl.h>
 #include <wx/valtext.h>
-#include <wx/dynarray.h>
-#include <wx/sizer.h>
 #include <wx/statbmp.h>
 #include <wx/frame.h>
 
@@ -68,6 +67,7 @@ class MainFrame : public wxFrame
 		wxComboBox* m_comboBox2;
 		wxStaticText* m_staticText10;
 		wxTextCtrl* m_textCtrl41;
+		wxStaticText* m_staticText181;
 		wxStaticText* m_staticText14;
 		wxTextCtrl* m_textCtrl6;
 		wxStaticText* m_staticText15;
@@ -77,15 +77,15 @@ class MainFrame : public wxFrame
 		virtual void U1rmsEnter( wxCommandEvent& event ) { event.Skip(); }
 		virtual void R1Enter( wxCommandEvent& event ) { event.Skip(); }
 		virtual void R2Enter( wxCommandEvent& event ) { event.Skip(); }
-		virtual void U2Calc( wxCommandEvent& event ) { event.Skip(); }
-		virtual void KyCalc( wxCommandEvent& event ) { event.Skip(); }
-		virtual void RocCalc( wxCommandEvent& event ) { event.Skip(); }
+		virtual void REnter( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ADCVoltageSelect( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 		wxString inputU1rms;
 		wxString inputR1;
 		wxString inputR2;
+		wxString inputR;
 
 		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("ui"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1500,1200 ), long style = wxDEFAULT_FRAME_STYLE|wxMAXIMIZE|wxTAB_TRAVERSAL, const wxString& name = wxT("ui") );
 

@@ -10,25 +10,31 @@ class Calculation
         float U1rms = 0;
         float R1 = 0;
         float R2 = 0;
+        float R = 0;
+        float ADCVoltage = 0;
 
         struct calcresult
         {
             bool status;
             float U1m;
             float U2;
-            float Kgainins;
             float Kgaincom;
-            float Rfbinvert;
+            float Kgainins;
             float Rfbnoninvert;
+            float Rfbinvert;
         };
 
     public:
         bool setU1rms(std::string input);
         bool setR1(std::string input);
         bool setR2(std::string input);
+        bool setR(std::string input);
+        bool setADCVoltage(std::string input);
         bool checkinput(std::string input);
-        calcresult rutine();
-};
 
+        calcresult rutineDCVTMiddleVoltageDCSupply();
+        calcresult rutineDCVTMiddleHighVoltageLineDCSupply();
+        calcresult rutineATKUEmiddleVoltage();
+};
 
 #endif

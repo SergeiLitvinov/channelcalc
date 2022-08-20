@@ -15,13 +15,15 @@ void FormHandler::ProductSelect( wxCommandEvent& event )
 // TODO: Implement ProductSelect
 wxComboBox *SelectItem = (wxComboBox *) event.GetEventObject();
 int index = SelectItem->GetSelection();
-wxString mystring = wxString::Format(wxT("%i"), index);
 
 if (index == 0)
 {   
     m_staticText11->Show();
     m_textCtrl5->Show();
     m_staticText12->Show();
+    m_staticText13->Hide();
+    m_comboBox2->Hide();
+    m_staticText181->Hide();
     wxWindow::Layout();
     wxWindow::Refresh();
     wxWindow::Update();
@@ -32,6 +34,9 @@ else if (index == 1)
     m_staticText11->Hide();
     m_textCtrl5->Hide();
     m_staticText12->Hide();
+    m_staticText13->Hide();
+    m_comboBox2->Hide();
+    m_staticText181->Show();
     wxWindow::Layout();
     wxWindow::Refresh();
     wxWindow::Update();
@@ -41,13 +46,32 @@ else if (index == 2)
 {
     m_staticText11->Hide();
     m_textCtrl5->Hide();
+    m_staticText181->Hide();
     m_staticText12->Hide();
+    m_staticText13->Show();
+    m_comboBox2->Show();
     wxWindow::Layout();
     wxWindow::Refresh();
     wxWindow::Update();
 }
 
-}
+};
+
+void FormHandler::ADCVoltageSelect( wxCommandEvent& event )
+{
+// TODO: Implement ADCVoltageSelect
+    wxComboBox *SelectItem = (wxComboBox *) event.GetEventObject();
+    std::string stlstring = std::string(SelectItem->GetValue().mb_str());
+    
+    if (calcdata.setADCVoltage(stlstring))
+    {
+    wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Kgainins);
+    m_textCtrl41->SetValue(num_Ky);
+
+    wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Rfbinvert);
+    m_textCtrl6->SetValue(num_Roc);
+    }
+};
 
 void FormHandler::U1rmsEnter( wxCommandEvent& event )
 {
@@ -57,20 +81,63 @@ void FormHandler::U1rmsEnter( wxCommandEvent& event )
     wxTextCtrl *TextString = (wxTextCtrl *) event.GetEventObject();
     std::string stlstring = std::string(TextString->GetValue().mb_str());
 
-    if (calcdata.setU1rms(stlstring))
+    int index = m_comboBox4->GetSelection();
+
+    if (index == 0)
+
     {
-        wxString num = wxString::Format(wxT("%f"), calcdata.rutine().U1m);
+        if (calcdata.setU1rms(stlstring))
+        {
+        wxString num = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().U1m);
         m_textCtrl8->SetValue(num);
 
-        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutine().U2);
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().U2);
         m_textCtrl10->SetValue(num_U2);
 
-        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutine().Kgainins);
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Kgaincom);
         m_textCtrl41->SetValue(num_Ky);
 
-        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutine().Rfbinvert);
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Rfbnoninvert);
         m_textCtrl6->SetValue(num_Roc);
+        }
     }
+
+    else if (index == 1)
+    {
+        if (calcdata.setU1rms(stlstring))
+        {
+        wxString num = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().U1m);
+        m_textCtrl8->SetValue(num);
+
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().U2);
+        m_textCtrl10->SetValue(num_U2);
+
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().Kgainins);
+        m_textCtrl41->SetValue(num_Ky);
+
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().Rfbinvert);
+        m_textCtrl6->SetValue(num_Roc);
+        }
+    }
+
+    else if (index == 2)
+    {
+        if (calcdata.setU1rms(stlstring))
+        {
+        wxString num = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().U1m);
+        m_textCtrl8->SetValue(num);
+
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().U2);
+        m_textCtrl10->SetValue(num_U2);
+
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Kgainins);
+        m_textCtrl41->SetValue(num_Ky);
+
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Rfbinvert);
+        m_textCtrl6->SetValue(num_Roc);
+        }
+    }
+
 };
 
 void FormHandler::R1Enter( wxCommandEvent& event )
@@ -80,16 +147,52 @@ void FormHandler::R1Enter( wxCommandEvent& event )
     wxTextCtrl *TextString = (wxTextCtrl *) event.GetEventObject();
     std::string stlstring = std::string(TextString->GetValue().mb_str());
 
-    if (calcdata.setR1(stlstring))
+    int index = m_comboBox4->GetSelection();
+
+    if (index == 0)
+
     {
-        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutine().U2);
+        if (calcdata.setR1(stlstring))
+        {
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().U2);
         m_textCtrl10->SetValue(num_U2);
 
-        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutine().Kgainins);
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Kgaincom);
         m_textCtrl41->SetValue(num_Ky);
 
-        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutine().Rfbinvert);
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Rfbnoninvert);
         m_textCtrl6->SetValue(num_Roc);
+        }
+    }
+
+    else if (index == 1)
+    {
+        if (calcdata.setR1(stlstring))
+        {
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().U2);
+        m_textCtrl10->SetValue(num_U2);
+
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().Kgainins);
+        m_textCtrl41->SetValue(num_Ky);
+
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().Rfbinvert);
+        m_textCtrl6->SetValue(num_Roc);
+        }
+    }
+
+    else if (index == 2)
+    {
+        if (calcdata.setR1(stlstring))
+        {
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().U2);
+        m_textCtrl10->SetValue(num_U2);
+
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Kgainins);
+        m_textCtrl41->SetValue(num_Ky);
+
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Rfbinvert);
+        m_textCtrl6->SetValue(num_Roc);
+        }
     }
 };
 
@@ -100,33 +203,69 @@ void FormHandler::R2Enter( wxCommandEvent& event )
     wxTextCtrl *TextString = (wxTextCtrl *) event.GetEventObject();
     std::string stlstring = std::string(TextString->GetValue().mb_str());
 
-    if (calcdata.setR2(stlstring))
+    int index = m_comboBox4->GetSelection();
+
+    if (index == 0)
+
     {
-        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutine().U2);
+        if (calcdata.setR2(stlstring))
+        {
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().U2);
         m_textCtrl10->SetValue(num_U2);
 
-        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutine().Kgainins);
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Kgaincom);
         m_textCtrl41->SetValue(num_Ky);
 
-        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutine().Rfbinvert);
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Rfbnoninvert);
         m_textCtrl6->SetValue(num_Roc);
+        }
+    }
+
+    else if (index == 1)
+    {
+        if (calcdata.setR2(stlstring))
+        {
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().U2);
+        m_textCtrl10->SetValue(num_U2);
+
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().Kgainins);
+        m_textCtrl41->SetValue(num_Ky);
+
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleHighVoltageLineDCSupply().Rfbinvert);
+        m_textCtrl6->SetValue(num_Roc);
+        }
+    }
+
+    else if (index == 2)
+    {
+        if (calcdata.setR2(stlstring))
+        {
+        wxString num_U2 = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().U2);
+        m_textCtrl10->SetValue(num_U2);
+
+        wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Kgainins);
+        m_textCtrl41->SetValue(num_Ky);
+
+        wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineATKUEmiddleVoltage().Rfbinvert);
+        m_textCtrl6->SetValue(num_Roc);
+        }
     }
 };
 
-void FormHandler::U2Calc( wxCommandEvent& event )
+void FormHandler::REnter( wxCommandEvent& event )
 {
-// TODO: Implement U1mCulc
-    
-};
+// TODO: Implement REnter
 
-void FormHandler::KyCalc( wxCommandEvent& event )
-{
-// TODO: Implement U1mCulc
-    
-};
+    wxTextCtrl *TextString = (wxTextCtrl *) event.GetEventObject();
+    std::string stlstring = std::string(TextString->GetValue().mb_str());
 
-void FormHandler::RocCalc( wxCommandEvent& event )
-{
-// TODO: Implement U1mCulc
-    
+    if (calcdata.setR(stlstring))
+    {
+    wxString num_Ky = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Kgaincom);
+    m_textCtrl41->SetValue(num_Ky);
+
+    wxString num_Roc = wxString::Format(wxT("%f"), calcdata.rutineDCVTMiddleVoltageDCSupply().Rfbnoninvert);
+    m_textCtrl6->SetValue(num_Roc);
+    }
+
 };
