@@ -45,8 +45,8 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	bSizer101->Add( m_staticText4, 0, wxALL, 5 );
 
 	m_comboBox4 = new wxComboBox( this, wxID_ANY, wxT("ЦКТТН 6-35 кВ (питание от СОПТ)"), wxDefaultPosition, wxSize( 300,-1 ), 0, NULL, 0 );
-	m_comboBox4->Append( wxT("ЦКТТН 6-35 кВ (питание от СОПТ)") );
-	m_comboBox4->Append( wxT("ЦКТТН 6-36 кВ (питание от линии) или ЦКТТН 110 кВ (питание от СОПТ)") );
+	m_comboBox4->Append( wxT("ЦКТТН 6(10) кВ (питание от СОПТ)") );
+	m_comboBox4->Append( wxT("ЦКТТН 35, 110 кВ (питание от линии или СОПТ)") );
 	m_comboBox4->Append( wxT("АТКУЭ 6-35 кВ") );
 	m_comboBox4->SetSelection( 0 );
 	bSizer101->Add( m_comboBox4, 0, wxALL, 5 );
@@ -92,7 +92,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer10;
 	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText41 = new wxStaticText( this, wxID_ANY, wxT("Введите сопротивление  верхнего плеча делителя напряжения R1="), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText41 = new wxStaticText( this, wxID_ANY, wxT("Введите сопротивление верхнего плеча делителя напряжения R1="), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText41->Wrap( -1 );
 	bSizer10->Add( m_staticText41, 0, wxALL, 5 );
 
@@ -109,7 +109,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	bSizer10->Add( m_textCtrl2, 0, wxALL, 5 );
 
-	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("Ом"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("МОм"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText5->Wrap( -1 );
 	bSizer10->Add( m_staticText5, 0, wxALL, 5 );
 
@@ -139,7 +139,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	bSizer12->Add( m_textCtrl4, 0, wxALL, 5 );
 
-	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("Ом"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("кОм"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText7->Wrap( -1 );
 	bSizer12->Add( m_staticText7, 0, wxALL, 5 );
 
@@ -281,7 +281,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	bSizer7->Add( m_textCtrl41, 0, wxALL, 5 );
 
-	m_staticText181 = new wxStaticText( this, wxID_ANY, wxT("R = 100 кОм"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText181 = new wxStaticText( this, wxID_ANY, wxT("Rу.внутр= 100 кОм"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText181->Wrap( -1 );
 	m_staticText181->Hide();
 
@@ -296,7 +296,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer9;
 	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText14 = new wxStaticText( this, wxID_ANY, wxT("Искомое сопротивление обратной связи, Rо.с.="), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText14 = new wxStaticText( this, wxID_ANY, wxT("Искомое сопротивление усилителя, Rу="), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText14->Wrap( -1 );
 	bSizer9->Add( m_staticText14, 0, wxALL, 5 );
 

@@ -21,7 +21,6 @@ class Calculation
             float Kgaincom;
             float Kgainins;
             float Rfbnoninvert;
-            float Rfbinvert;
         };
 
     public:
