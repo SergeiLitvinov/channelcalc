@@ -4,8 +4,9 @@
             "name": "Win32",
             "includePath": [
                 "${default}",
-                "${workspaceFolder}/",
-                "${workspaceFolder}/include/"
+                "${workspaceFolder}",
+                "${workspaceFolder}/include",
+                "C:/wxWidgets/static/release/include"
             ],
             "compilerPath": "C:/msys64/mingw64/bin/gcc",
             "cStandard": "gnu17",

@@ -17,34 +17,33 @@ add_executable(
 
 # Директории с *.h файлами
 include_directories(
-    Core/Inc
-    "C:/Program Files (x86)/wxWidgets/static/release/include"
-    "C:/projects/git/channelcalc/include"
+    "include"
 )
 
-# Флаги компиляции
 add_compile_options(
     -mwindows
-    -static
 )
 
-# Директории с библиотеками
-set(wxWidgets_ROOT_DIR "C:/Program Files (x86)/wxWidgets/static/release")
-set(wxWidgets_LIB_DIR "C:/Program Files (x86)/wxWidgets/static/release/lib/gcc_x64_lib")
+set(wxWidgets_ROOT_DIR "C:/wxWidgets/static/release")
+set(wxWidgets_LIB_DIR "C:/wxWidgets/static/release/lib/gcc_x64_lib")
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 
-
-
+# Подключение библиотек
 target_link_libraries(
-    ${EXECUTABLE} 
-    ${wxWidgets_LIBRARIES}
-)
-target_include_directories(
     ${EXECUTABLE}
-    PRIVATE
-    ${wxWidgets_INCLUDE_DIRS}
+    #debug
+    ${wxWidgets_LIBRARIES}  
 )
+
+
+
+#target_include_directories(
+#    ${EXECUTABLE}
+#    PRIVATE
+#    ${wxWidgets_INCLUDE_DIRS}
+#)
+
 
 # Флаги компиляции
 # add_compile_options(
@@ -63,15 +62,11 @@ target_include_directories(
 # )
 
 
-# Пример подключения библиотек
+# подключениt библиотек
 # Для Windows
-# if (WIN32)
-    # Подключение библиотек
-    
+#if (WIN32)
 
-   
- 
-# endif ()
+#endif ()
 
 # # Для Linux
 # if (UNIX)
