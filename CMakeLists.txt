@@ -20,13 +20,12 @@ include_directories(
     "include"
 )
 
-add_compile_options(
-    -mwindows
-)
-
+# Директории с wxWidgets и библиотеками
 set(wxWidgets_ROOT_DIR "C:/wxWidgets/static/release")
 set(wxWidgets_LIB_DIR "C:/wxWidgets/static/release/lib/gcc_x64_lib")
-find_package(wxWidgets REQUIRED COMPONENTS net core base)
+
+# Поск необходимых компонентов библиотек
+find_package(wxWidgets COMPONENTS REQUIRED core base net)
 include(${wxWidgets_USE_FILE})
 
 # Подключение библиотек
@@ -36,7 +35,12 @@ target_link_libraries(
     ${wxWidgets_LIBRARIES}  
 )
 
-
+# флаг компиляции для запуска приложения без командной строки
+target_link_options(
+    ${EXECUTABLE}
+    PRIVATE
+    -mwindows
+)
 
 #target_include_directories(
 #    ${EXECUTABLE}
