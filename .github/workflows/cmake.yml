@@ -21,7 +21,7 @@ jobs:
       WXWIN: c:\wx
 
     steps:
-      - uses: actions/checkout@v3
+      # - uses: actions/checkout@v3
       - name: Install wxWidgets
         run: |
           mkdir ${env:WXWIN} | Out-Null
@@ -31,7 +31,8 @@ jobs:
           curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
           7z x wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
       - name: Build
-        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        run: cmake --build ${{GITHUB_WORKSPACE}}/build --config ${{env.BUILD_TYPE}}
       - name: Test
         working-directory: ${{github.workspace}}/build
         run: ctest -C ${{env.BUILD_TYPE}}
