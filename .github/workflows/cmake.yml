@@ -30,8 +30,8 @@ jobs:
         run: |
           mkdir ${env:WXWIN} | Out-Null
           cd ${env:WXWIN}
-          curl -OL https://github.com/wxWidgets/wxWidgets/archive/refs/tags/vv${env:wxMSW_VER}.zip
-
+          curl -OL https://github.com/wxWidgets/wxWidgets/archive/refs/tags/v${env:wxMSW_VER}.zip
+          7z x v${env:wxMSW_VER}.zip
           # cd /
           # mkdir build
 
