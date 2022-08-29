@@ -21,16 +21,17 @@ jobs:
       WXWIN: c:\wx
 
     steps:
+        # curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxWidgets-${env:wxMSW_VER}-headers.7z  
+        #  7z x wxWidgets-${env:wxMSW_VER}-headers.7z
+        #  curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
+        #  7z x wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
       - uses: actions/checkout@v3
       - name: Install wxWidgets
         run: |
           mkdir ${env:WXWIN} | Out-Null
           cd ${env:WXWIN}
-        # curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxWidgets-${env:wxMSW_VER}-headers.7z
           curl -OL https://github.com/wxWidgets/wxWidgets/archive/refs/tags/vv${env:wxMSW_VER}.zip
-        #  7z x wxWidgets-${env:wxMSW_VER}-headers.7z
-        #  curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
-        #  7z x wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
+
           # cd /
           # mkdir build
 
