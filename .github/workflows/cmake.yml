@@ -21,7 +21,7 @@ jobs:
       WXWIN: c:\wx
 
     steps:
-      # - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Install wxWidgets
         run: |
           mkdir ${env:WXWIN} | Out-Null
@@ -32,11 +32,11 @@ jobs:
           7z x wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
           cd /
           mkdir build
-          dir
+
       - name: Build
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         # run: cmake --build --config ${{env.BUILD_TYPE}}
-        run: cmake . -G "MinGW Makefiles" -B build -D CMAKE_BUILD_TYPE=RELEASE
+        run: cmake . -G "MinGW Makefiles" -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=RELEASE
       - name: Test
         working-directory: ${{github.workspace}}/build
         run: ctest -C ${{env.BUILD_TYPE}}
