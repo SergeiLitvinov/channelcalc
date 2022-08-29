@@ -36,7 +36,7 @@ jobs:
           curl -OL https://github.com/wxWidgets/wxWidgets/archive/refs/tags/v${env:wxMSW_VER}.zip
           7z x v${env:wxMSW_VER}.zip
           cd wxWidgets-${env:wxMSW_VER}
-          cmake . -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=RELEASE -DwxBUILD_SHARED=OFF
+          cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=RELEASE -DwxBUILD_SHARED=OFF
       - name: Build 
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         # run: cmake --build --config ${{env.BUILD_TYPE}}
