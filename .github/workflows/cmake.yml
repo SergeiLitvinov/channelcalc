@@ -31,7 +31,7 @@ jobs:
           mkdir ${env:WXWIN} | Out-Null
           cd ${env:WXWIN}
           curl -OL https://github.com/wxWidgets/wxWidgets/archive/refs/tags/v${env:wxMSW_VER}.zip
-          7z x v${env:wxMSW_VER}.zip -o ./v${env:wxMSW_VER}
+          7z x v${env:wxMSW_VER}.zip -o"./v${env:wxMSW_VER}"
           ls
           cd v${env:wxMSW_VER}
           cmake . -G "MinGW Makefiles" -B ./static -DCMAKE_BUILD_TYPE=RELEASE -DwxBUILD_SHARED=OFF
