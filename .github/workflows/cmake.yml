@@ -32,13 +32,11 @@ jobs:
           cd ${env:WXWIN}
           curl -OL https://github.com/wxWidgets/wxWidgets/archive/refs/tags/v${env:wxMSW_VER}.zip
           7z x v${env:wxMSW_VER}.zip
-          # cd /
-          # mkdir build
-
-      - name: Build
+          cd v${env:wxMSW_VER}
+      - name: Build 
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         # run: cmake --build --config ${{env.BUILD_TYPE}}
-        run: cmake . -G "MinGW Makefiles" -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=RELEASE
+        run: cmake . -G "MinGW Makefiles" -B ./static -DCMAKE_BUILD_TYPE=RELEASE -DwxBUILD_SHARED=OFF
       - name: Test
         working-directory: ${{github.workspace}}/build
         run: ctest -C ${{env.BUILD_TYPE}}

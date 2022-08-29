@@ -21,8 +21,8 @@ include_directories(
 )
 
 # Директории с wxWidgets и библиотеками
-set(wxWidgets_ROOT_DIR "C:/wxWidgets/static/release")
-set(wxWidgets_LIB_DIR "C:/wxWidgets/static/release/lib/gcc_x64_lib")
+set(wxWidgets_ROOT_DIR "C:/wx/v3.1.7/static")
+set(wxWidgets_LIB_DIR "C:/wx/v3.1.7/static/lib/gcc_x64_lib")
 
 # Поск необходимых компонентов библиотек
 find_package(wxWidgets COMPONENTS REQUIRED core base net)
