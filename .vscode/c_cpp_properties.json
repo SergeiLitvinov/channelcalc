@@ -6,7 +6,7 @@
                 "${default}",
                 "${workspaceFolder}",
                 "${workspaceFolder}/include",
-                "C:/wx/static/include"
+                "C:/wx/static/release/include"
             ],
             "compilerPath": "C:/msys64/mingw64/bin/gcc",
             "cStandard": "gnu17",
