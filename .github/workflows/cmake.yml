@@ -30,10 +30,10 @@ jobs:
         run: |
           mkdir ${env:WXWIN} | Out-Null
           cd ${env:WXWIN}
-          curl -OL https://github.com/wxWidgets/wxWidgets/archive/refs/tags/v${env:wxMSW_VER}.zip
-          7z x v${env:wxMSW_VER}.zip
+          curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.0/wxWidgets-3.2.0.7z
+          7z x wxWidgets-3.2.0.7z
           ls
-          cd v${env:wxMSW_VER}
+          cd wxWidgets-3.2.0
           cmake . -G "MinGW Makefiles" -B ./static -DCMAKE_BUILD_TYPE=RELEASE -DwxBUILD_SHARED=OFF
       - name: Build 
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
