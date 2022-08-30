@@ -25,6 +25,9 @@ jobs:
         #  7z x wxWidgets-${env:wxMSW_VER}-headers.7z
         #  curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
         #  7z x wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
+        # cd ./build/static
+        # mingw32-make
+        #           cmake . -G "MinGW Makefiles" -B ./build/static -DCMAKE_BUILD_TYPE=RELEASE -DwxBUILD_SHARED=OFF
       - uses: actions/checkout@v3
       - name: Install wxWidgets
         run: |
@@ -35,6 +38,7 @@ jobs:
           ls
           cd wxWidgets-3.2.0
           cmake . -G "MinGW Makefiles" -B ./static -DCMAKE_BUILD_TYPE=RELEASE -DwxBUILD_SHARED=OFF
+
       - name: Build 
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         # run: cmake --build --config ${{env.BUILD_TYPE}}
