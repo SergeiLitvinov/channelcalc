@@ -27,17 +27,20 @@ jobs:
         #  7z x wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
         # cd ./build/static
         # mingw32-make
+
+        #  mkdir ${env:WXWIN} | Out-Null
+        #  cd ${env:WXWIN}
+        #  curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.0/wxWidgets-3.2.0.7z
+        #  7z x wxWidgets-3.2.0.7z
+        #  cmake -G "MinGW Makefiles" -B ./static -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=c:\wx\install -DwxBUILD_SHARED=OFF
+        #  cd static
+        #  make -j4
+        #  make install
       - uses: actions/checkout@v3
       - name: Install wxWidgets
         run: |
-          mkdir ${env:WXWIN} | Out-Null
-          cd ${env:WXWIN}
-          curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.0/wxWidgets-3.2.0.7z
-          7z x wxWidgets-3.2.0.7z
-          cmake -G "MinGW Makefiles" -B ./static -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=c:\wx\install -DwxBUILD_SHARED=OFF
-          cd static
-          make -j4
-          make install
+          cmake --version
+
       - name: Build 
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         # run: cmake --build --config ${{env.BUILD_TYPE}}
