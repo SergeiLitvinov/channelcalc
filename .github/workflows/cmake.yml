@@ -15,7 +15,7 @@ jobs:
     name: C++/MSVS (windows-2019)
 
     # runs-on: windows-2019
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     env:
       # wxMSW_VER: 3.1.7
