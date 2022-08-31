@@ -47,7 +47,9 @@ jobs:
         # run: cmake --build --config ${{env.BUILD_TYPE}}
         run: |
           cd ${{github.workspace}}
-          cmake -G "MinGW Makefiles" -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=RELEASE
+          cmake . -G "MinGW Makefiles" -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=RELEASE
+          cd D:/a/channelcalc/channelcalc/build
+          mingw32-make -j8
           ls D:/a/channelcalc/channelcalc/build
       - name: Test
         working-directory: ${{github.workspace}}/build
