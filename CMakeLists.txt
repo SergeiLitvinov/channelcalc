@@ -18,11 +18,12 @@ add_executable(
 # Директории с *.h файлами
 include_directories(
     "include"
+    "C:/wx/include"
 )
 
 # Директории с wxWidgets и библиотеками
-set(wxWidgets_ROOT_DIR "C:/Program Files (x86)/wxWidgets")
-set(wxWidgets_LIB_DIR "C:/Program Files (x86)/wxWidgets/lib/gcc_x64_lib")
+set(wxWidgets_ROOT_DIR "C:/wx")
+set(wxWidgets_LIB_DIR "C:/wx/lib/gcc1210_x64_dll")
 
 # Поск необходимых компонентов библиотек
 find_package(wxWidgets COMPONENTS REQUIRED core base net)
