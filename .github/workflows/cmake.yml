@@ -44,8 +44,8 @@ jobs:
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         # run: cmake --build --config ${{env.BUILD_TYPE}}
         run: |
-          mingw-get update
-          mingw-get upgrade
+          mingw64
+
           cd ${{github.workspace}}
           cmake . -G "MinGW Makefiles" -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=RELEASE
           cd ${{github.workspace}}/build
