@@ -23,7 +23,7 @@ include_directories(
 
 # Директории с wxWidgets и библиотеками
 set(wxWidgets_ROOT_DIR "C:/wx")
-set(wxWidgets_LIB_DIR "C:/wx/lib/gcc_x64_lib")
+set(wxWidgets_LIB_DIR "C:/wx/gcc_x64_lib")
 
 
 # Поск необходимых компонентов библиотек
