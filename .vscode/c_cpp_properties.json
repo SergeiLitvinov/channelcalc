@@ -6,7 +6,7 @@
                 "${default}",
                 "${workspaceFolder}",
                 "${workspaceFolder}/include",
-                "C:/Program Files (x86)/wxWidgets/include"
+                "C:/wx/include"
             ],
             "compilerPath": "C:/msys64/mingw64/bin/gcc",
             "cStandard": "gnu17",

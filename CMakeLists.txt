@@ -41,6 +41,7 @@ target_link_options(
     ${EXECUTABLE}
     PRIVATE
     -mwindows
+    -static
 )
 
 #target_include_directories(
