@@ -34,7 +34,7 @@ include(${wxWidgets_USE_FILE})
 target_link_libraries(
     ${EXECUTABLE}
     #debug
-    optimized -static
+    #optimized -static
     ${wxWidgets_LIBRARIES}  
 
     #optimized -luuid
