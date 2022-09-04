@@ -34,14 +34,15 @@ include(${wxWidgets_USE_FILE})
 target_link_libraries(
     ${EXECUTABLE}
     #debug
-    ${wxWidgets_LIBRARIES}  
     optimized -static
-    optimized -luuid
-    optimized -lcomctl32
-    optimized -loleacc
+    ${wxWidgets_LIBRARIES}  
+
+    #optimized -luuid
+    #optimized -lcomctl32
+    #optimized -loleacc
     #optimized -lpng
     #optimized -lz
-    optimized -s
+    #optimized -s
 )
 
 
