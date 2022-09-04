@@ -27,7 +27,6 @@ set(wxWidgets_LIB_DIR "C:/wx/lib/gcc1210_x64_dll")
 
 
 # Поск необходимых компонентов библиотек
-set(wxWidgets_USE_LIBS ON)
 find_package(wxWidgets COMPONENTS REQUIRED core base net)
 include(${wxWidgets_USE_FILE})
 
@@ -37,13 +36,6 @@ target_link_libraries(
     #debug
     #optimized -static
     ${wxWidgets_LIBRARIES}  
-
-    #optimized -luuid
-    #optimized -lcomctl32
-    #optimized -loleacc
-    #optimized -lpng
-    #optimized -lz
-    #optimized -s
 )
 
 
