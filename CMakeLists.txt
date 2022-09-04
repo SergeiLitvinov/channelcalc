@@ -39,8 +39,8 @@ target_link_libraries(
     optimized -luuid
     optimized -lcomctl32
     optimized -loleacc
-    optimized -lpng
-    optimized -lz
+    #optimized -lpng
+    #optimized -lz
     optimized -s
 )
 
