@@ -24,9 +24,10 @@ include_directories(
 # Директории с wxWidgets и библиотеками
 set(wxWidgets_ROOT_DIR "C:/wx")
 set(wxWidgets_LIB_DIR "C:/wx/lib/gcc1210_x64_dll")
-#set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+
 
 # Поск необходимых компонентов библиотек
+set(wxWidgets_USE_LIBS ON)
 find_package(wxWidgets COMPONENTS REQUIRED core base net)
 include(${wxWidgets_USE_FILE})
 
