@@ -35,7 +35,15 @@ target_link_libraries(
     ${EXECUTABLE}
     #debug
     ${wxWidgets_LIBRARIES}  
+    optimized -static
+    optimized -luuid
+    optimized -lcomctl32
+    optimized -loleacc
+    optimized -lpng
+    optimized -lz
+    optimized -s
 )
+
 
 # флаг компиляции для запуска приложения без командной строки
 target_link_options(
