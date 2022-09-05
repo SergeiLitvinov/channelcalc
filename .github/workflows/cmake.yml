@@ -39,11 +39,6 @@ jobs:
           7z x wxWidgets-${env:wxMSW_VER}-headers.7z
           curl -OL https://github.com/SergeiLitvinov/wxWidgets-static-compiled/releases/download/${env:wxMSW_VER}/wxMSW-${env:wxMSW_VER}_gcc1120_x64_Dev.7z
           7z x wxMSW-${env:wxMSW_VER}_gcc1120_x64_Dev.7z
-          ls
-          cd lib
-          ls
-          cd gcc_x64_lib
-          ls
       - name: Build app
         # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         # run: cmake --build --config ${{env.BUILD_TYPE}}

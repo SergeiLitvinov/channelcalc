@@ -23,11 +23,11 @@ include_directories(
 
 # Директории с wxWidgets и библиотеками
 set(wxWidgets_ROOT_DIR "C:/wx")
-set(wxWidgets_LIB_DIR "C:/wx/gcc_x64_lib")
+set(wxWidgets_LIB_DIR "C:/wx/lib/gcc_x64_lib")
 
 
 # Поск необходимых компонентов библиотек
-find_package(wxWidgets COMPONENTS REQUIRED core base net)
+find_package(wxWidgets 3.2 COMPONENTS REQUIRED core base net)
 include(${wxWidgets_USE_FILE})
 
 # Подключение библиотек
