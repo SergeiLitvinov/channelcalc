@@ -1,5 +1,5 @@
 # Название конвейера
-name: CMake
+name: CMake build
 
 # Управление событиями запуска конвейера
 on:
@@ -21,35 +21,58 @@ env:
 # Работы конвейера
 jobs:
 # Сборка приложения с wxWidgets под windows-latest (x64)
-  build-cpp-windows:
-    name: C++/Win32 (windows22-image)
-    runs-on: windows-2022
+  build:
+    name: Build for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: windows-2022
+            # artifact_name: IEC104_Slave.exe
+            # asset_name: IEC104_Slave_Windows_amd64_$tag.exe
+          - os: ubuntu-latest
+            # artifact_name: IEC104_Slave
+            # asset_name: IEC104_Slave_Linux_amd64_$tag
 
     env:
-      wxMSW_VER: 3.2.0
+      wx_VER: 3.2.0
       WXWIN: c:\wx
-
+      WXLIN: /wx
+      
     steps:
       - uses: actions/checkout@v3
-      - name: Download wxWidgets
+      - name: Build for win-amd64
+        if: matrix.os == 'windows-2022'
         run: |
           mkdir ${env:WXWIN} | Out-Null
           cd ${env:WXWIN}
-          curl -OL https://github.com/SergeiLitvinov/wxWidgets-static-compiled/releases/download/${env:wxMSW_VER}/wxWidgets-${env:wxMSW_VER}-headers.7z  
-          7z x wxWidgets-${env:wxMSW_VER}-headers.7z
-          curl -OL https://github.com/SergeiLitvinov/wxWidgets-static-compiled/releases/download/${env:wxMSW_VER}/wxMSW-${env:wxMSW_VER}_gcc1120_x64_Dev.7z
-          7z x wxMSW-${env:wxMSW_VER}_gcc1120_x64_Dev.7z
-      - name: Build app
-        # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-        # run: cmake --build --config ${{env.BUILD_TYPE}}
-        run: |
+          curl -OL https://github.com/SergeiLitvinov/wxWidgets-static-compiled/releases/download/${env:wx_VER}/wxWidgets-${env:wx_VER}-headers.7z  
+          7z x wxWidgets-${env:wx_VER}-headers.7z
+          curl -OL https://github.com/SergeiLitvinov/wxWidgets-static-compiled/releases/download/${env:wxMSW_VER}/wxMSW-${env:wx_VER}_gcc1120_x64_Dev.7z
+          7z x wxMSW-${env:wx_VER}_gcc1120_x64_Dev.7z
           cd ${{github.workspace}}
           cmake . -G "MinGW Makefiles" -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=RELEASE
           cd ${{github.workspace}}/build
           make -j8
+      # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      # run: cmake --build --config ${{env.BUILD_TYPE}}
       # - name: Test
       #  working-directory: ${{github.workspace}}/build
       #  run: ctest -C ${{env.BUILD_TYPE}}
+      - name: Build for Linux-amd64
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          mkdir ${env:WXLIN} | Out-Null
+          cd ${env:WXLIN}
+          curl -OL https://github.com/SergeiLitvinov/wxWidgets-static-compiled/releases/download/${env:wx_VER}/wxWidgets-${env:wx_VER}-headers.7z  
+          7z x wxWidgets-${env:wx_VER}-headers.7z
+          curl -OL https://github.com/SergeiLitvinov/wxWidgets-static-compiled/releases/download/${env:wxMSW_VER}/wxMSW-${env:wx_VER}_gcc1120_x64_Dev.7z
+          7z x wxMSW-${env:wx_VER}_gcc1120_x64_Dev.7z
+          cd ${{github.workspace}}
+          cmake . -G "Unix Makefiles" -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=RELEASE
+          cd ${{github.workspace}}/build
+          make -j8
+
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
