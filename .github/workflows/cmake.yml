@@ -9,9 +9,8 @@ on:
   pull_request:
     branches: '*'
   workflow_call:
-
 # Возможность ручного запуска конвейера из меню Actions
-  # workflow_dispatch:
+  workflow_dispatch:
 
 # Переменные окружения конвейера
 env:
